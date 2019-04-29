@@ -30,12 +30,16 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     itemobject.cpp \
-    fileclass.cpp
+    cadwindow.cpp \
+    customqgraphicsscene.cpp \
+    dialog.cpp
 
 HEADERS += \
         mainwindow.h \
     itemobject.h \
-    fileclass.h
+    cadwindow.h \
+    customqgraphicsscene.h \
+    dialog.h
 
 FORMS += \
         mainwindow.ui
