@@ -16,7 +16,7 @@ public:
     ~MainWindow();
 
 
-private slots:
+private Q_SLOTS:
     void on_undoButton_clicked();
 
     void on_redoButton_clicked();
@@ -35,7 +35,7 @@ private slots:
 
     void on_colorButton_clicked();
 
-    void on_actionOptions_triggered();
+    void on_actionFont_triggered();
 
     void on_actionSave_triggered();
 

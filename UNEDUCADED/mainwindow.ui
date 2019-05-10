@@ -20,7 +20,7 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
-   <widget class="QListView" name="objectListView">
+   <widget class="QListWidget" name="objectListWidget">
     <property name="geometry">
      <rect>
       <x>3</x>
@@ -40,6 +40,24 @@
       <width>275</width>
       <height>970</height>
      </size>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
+    <property name="showDropIndicator" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="dragEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>10</width>
+      <height>10</height>
+     </size>
+    </property>
+    <property name="itemAlignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QTabWidget" name="layerTab">
@@ -88,47 +106,70 @@
        <string/>
       </property>
      </widget>
-     <widget class="QWidget" name="layoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>840</x>
-        <y>910</y>
-        <width>501</width>
-        <height>89</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_5">
-       <item>
-        <widget class="QTextBrowser" name="textBrowser_2"/>
-       </item>
-       <item>
-        <widget class="QTextBrowser" name="textBrowser"/>
-       </item>
-       <item>
-        <widget class="QComboBox" name="comboBox">
-         <item>
-          <property name="text">
-           <string>m</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>cm</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="CADWindow" name="widget" native="true">
+     <widget class="QMdiArea" name="mdiArea">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>1211</width>
-        <height>911</height>
+        <width>1341</width>
+        <height>891</height>
        </rect>
       </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <widget class="Dialog" name="subwindow">
+       <property name="minimumSize">
+        <size>
+         <width>1325</width>
+         <height>820</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>1325</width>
+         <height>820</height>
+        </size>
+       </property>
+       <property name="windowTitle">
+        <string>Subwindow</string>
+       </property>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>830</x>
+          <y>858</y>
+          <width>501</width>
+          <height>89</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QTextBrowser" name="textBrowser_2"/>
+         </item>
+         <item>
+          <widget class="QTextBrowser" name="textBrowser"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBox">
+           <item>
+            <property name="text">
+             <string>m</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>cm</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
@@ -168,6 +209,31 @@
       <height>1020</height>
      </size>
     </property>
+    <widget class="QListWidget" name="itemListWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>281</width>
+       <height>961</height>
+      </rect>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="dragEnabled">
+      <bool>true</bool>
+     </property>
+     <property name="dragDropMode">
+      <enum>QAbstractItemView::DragOnly</enum>
+     </property>
+     <property name="flow">
+      <enum>QListView::LeftToRight</enum>
+     </property>
+     <property name="itemAlignment">
+      <set>Qt::AlignJustify</set>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
@@ -175,7 +241,7 @@
       <x>4</x>
       <y>10</y>
       <width>533</width>
-      <height>34</height>
+      <height>42</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -428,7 +494,7 @@
      <x>0</x>
      <y>0</y>
      <width>1920</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -461,19 +527,12 @@
     <addaction name="actionLeft_View"/>
     <addaction name="actionTop_View"/>
    </widget>
-   <widget class="QMenu" name="menuWindow">
-    <property name="title">
-     <string>Window</string>
-    </property>
-    <addaction name="actionObject_Window"/>
-    <addaction name="actionObject_Addition_Window"/>
-    <addaction name="actionObject_Addition_Window_2"/>
-   </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
      <string>Tools</string>
     </property>
-    <addaction name="actionOptions"/>
+    <addaction name="actionFont"/>
+    <addaction name="actionOption"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -484,7 +543,6 @@
    <addaction name="menuFile"/>
    <addaction name="menuedit"/>
    <addaction name="menuView"/>
-   <addaction name="menuWindow"/>
    <addaction name="menuTools"/>
    <addaction name="menuHelp"/>
   </widget>
@@ -572,19 +630,14 @@
     <string>Top View</string>
    </property>
   </action>
-  <action name="actionObject_Window">
-   <property name="text">
-    <string>Object List Window</string>
-   </property>
-  </action>
-  <action name="actionObject_Addition_Window">
-   <property name="text">
-    <string>Object Edit Window</string>
-   </property>
-  </action>
   <action name="actionOptions">
    <property name="text">
     <string>Options</string>
+   </property>
+  </action>
+  <action name="actionFont">
+   <property name="text">
+    <string>Font</string>
    </property>
   </action>
   <action name="actionHelp">
@@ -592,18 +645,18 @@
     <string>Help</string>
    </property>
   </action>
-  <action name="actionObject_Addition_Window_2">
+  <action name="actionOption">
    <property name="text">
-    <string>Object Addition Window</string>
+    <string>Option</string>
    </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>CADWindow</class>
+   <class>Dialog</class>
    <extends>QWidget</extends>
-   <header>cadwindow.h</header>
+   <header>dialog.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
