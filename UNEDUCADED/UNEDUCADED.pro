@@ -4,8 +4,9 @@
 #
 #-------------------------------------------------
 
-QT       += core gui \
-            widgets
+QT       += core\
+            gui \
+            widgets \
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -26,6 +27,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    listitem.cpp \
         main.cpp \
         mainwindow.cpp \
     cadwindow.cpp \
@@ -33,6 +35,7 @@ SOURCES += \
     dialog.cpp
 
 HEADERS += \
+    listitem.h \
         mainwindow.h \
     cadwindow.h \
     customqgraphicsscene.h \
@@ -45,6 +48,9 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+# icon
+RC_FILE = icon.rc
 
 RESOURCES += \
     resources.qrc
