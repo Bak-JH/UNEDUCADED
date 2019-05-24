@@ -6,7 +6,7 @@ void ListItem::setItemDefaultInfo(QString name, QPixmap icon)
     this->icon = icon;
 }
 
-void ListItem::setItemTransform(std::pair<int, int> pos, double rot, std::pair<int, int> size)
+void ListItem::setItemTransform(std::pair<int, int> pos, float rot, std::pair<int, int> size)
 {
     this->position = pos;
     this->rotation = rot;
@@ -16,4 +16,8 @@ void ListItem::setItemTransform(std::pair<int, int> pos, double rot, std::pair<i
 void ListItem::setItemColor(QColor color)
 {
     this->color = color;
+}
+
+void ListItem::showItem(ListItem* item)
+{
 }

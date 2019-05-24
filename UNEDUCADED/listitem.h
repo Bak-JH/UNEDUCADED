@@ -14,8 +14,9 @@ private:
 
 public:
     void setItemDefaultInfo(QString name, QPixmap icon);
-    void setItemTransform(std::pair<int, int> pos, double rot, std::pair<int, int> size);
+    void setItemTransform(std::pair<int, int> pos, float rot, std::pair<int, int> size);
     void setItemColor(QColor color);
+    void showItem(ListItem* item);
 };
 
 #endif // ADDLISTITEM_H
